@@ -15,6 +15,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
+          ref: main
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install and Build
@@ -25,3 +26,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build
+          ref: main
